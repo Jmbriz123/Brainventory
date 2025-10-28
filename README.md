@@ -1,4 +1,4 @@
-# 🧠 Brainventory
+# 🧠 Brainventory (CMSC 22 Final Project)
 *A Study Habit Tracker and Productivity Assistant*
 
 
