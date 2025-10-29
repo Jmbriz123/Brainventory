@@ -20,7 +20,7 @@ Brainventory is a GUI-based productivity system designed to help students build 
 
 The program allows users to record study sessions, organize subjects, and generate performance summaries such as total study time per subject or average study duration per day.  
 
-This project will demonstrate Object-Oriented Programming (OOP) principles in Java—namely **encapsulation**, **inheritance**, **polymorphism**, and **composition**—through well-structured class hierarchies and modular design. Brainventory encourages students to study smarter by promoting self-awareness and accountability through data-driven reflection.
+This project will demonstrate Object-Oriented Programming (OOP) principles in Java—namely **encapsulation**, **inheritance**, **polymorphism**, and **abstraction**—through well-structured class hierarchies and modular design. Brainventory encourages students to study smarter by promoting self-awareness and accountability through data-driven reflection.
 
 ---
 
