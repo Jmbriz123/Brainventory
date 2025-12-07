@@ -4,41 +4,30 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Pomodoro extends JPanel{
-    int remainingTimeInSeconds = 60;
-    int minutes = 1;
-    String[] seconds = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
- "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
- "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
- "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
- "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
- "51", "52", "53", "54", "55", "56", "57", "58", "59"};
-    int secondsIndex = 0; //start at 00
+    int remainingTimeInSeconds = 25*60;
+
+    int displayMinutes = remainingTimeInSeconds/60;
+    int displaySeconds = remainingTimeInSeconds % 60;
     String buttonText;
     Boolean isTimerOn = false;
 
     public Pomodoro(){
         //add timer
-        int delay = 1000;
+        int delay = 10;
         Timer timer = new Timer(delay, new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 //display time remaining (min:secs)
                 
         
-                displayTimer(secondsIndex);
+                displayTimer();
                 remainingTimeInSeconds --;
-                //updates seconds
-                if (secondsIndex > 0){
-                    secondsIndex--;
-                }else if (secondsIndex ==0){
-                    secondsIndex = 59; //wrap around
-                    //update minutes
-                    minutes --;
-                }
+                //update minutes and seconds
+                displayMinutes = remainingTimeInSeconds/60;
+                displaySeconds = remainingTimeInSeconds%60;
                 
-
                 if (remainingTimeInSeconds == 0){
                     ((Timer)e.getSource()).stop();
-                    displayTimer(secondsIndex);
+                    displayTimer();
                 }
             }
         });
@@ -49,9 +38,14 @@ public class Pomodoro extends JPanel{
         //add reset button
     
     }
-    private void displayTimer(int sec){ //for illustration purposes only
-        System.out.print(minutes+ ":");
-        System.out.println(seconds[sec]);
+    private void displayTimer(){ //for illustration purposes only
+        System.out.print(displayMinutes + ":");
+        if (displaySeconds < 10){
+            System.out.println("0" + displaySeconds);
+        }else{
+            System.out.println(displaySeconds);
+        }
+        
 
     }
     
