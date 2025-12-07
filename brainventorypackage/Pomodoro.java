@@ -13,13 +13,15 @@ public class Pomodoro extends JPanel{
 
     public Pomodoro(){
         //add timer
-        int delay = 10;
+        JLabel pomoTimer = createPomoTimer(displayMinutes, displaySeconds);
+        add(pomoTimer);
+        int delay = 1000;
         Timer timer = new Timer(delay, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //display time remaining (min:secs)
+                //display pomoTimer
                 
         
-                displayTimer();
+                pomoTimer.setText(String.format("%d:%02d", displayMinutes, displaySeconds));
                 remainingTimeInSeconds --;
                 //update minutes and seconds
                 displayMinutes = remainingTimeInSeconds/60;
@@ -27,40 +29,49 @@ public class Pomodoro extends JPanel{
                 
                 if (remainingTimeInSeconds == 0){
                     ((Timer)e.getSource()).stop();
-                    displayTimer();
+                    pomoTimer.setText(String.format("%d:%02d", displayMinutes, displaySeconds));
                 }
             }
+            
         });
-        timer.start();
-
-        //add start/pause button
-
-        //add reset button
-    
-    }
-    private void displayTimer(){ //for illustration purposes only
-        System.out.print(displayMinutes + ":");
-        if (displaySeconds < 10){
-            System.out.println("0" + displaySeconds);
-        }else{
-            System.out.println(displaySeconds);
-        }
         
 
+        //add start/pause/reset buttons
+        JPanel buttonsPanel = new JPanel(new FlowLayout());
+
+        MyButton btnStart = new MyButton("Start", new Color(42, 46, 58),new Color(54, 57, 71));
+        MyButton btnPause = new  MyButton("Pause", new Color(42, 46, 58),new Color(54, 57, 71));
+        MyButton btnReset = new  MyButton("Reset", new Color(42, 46, 58),new Color(54, 57, 71));
+
+        buttonsPanel.add(btnStart);
+        buttonsPanel.add(btnPause);
+        buttonsPanel.add(btnReset);
+        //make buttons responsive
+        btnStart.addActionListener(e->timer.start());
+        btnPause.addActionListener(e->timer.stop());
+        btnReset.addActionListener(e->{
+            remainingTimeInSeconds = 25*60;});
+
+        add(buttonsPanel);
+    
+    
     }
     
+   
 
-    private JPanel createPomoTimer(){
-        return new JPanel();
+    
+    
+    
+
+    private JLabel createPomoTimer(int minuteDisplay, int secondsDisplay){
+        
+    
+        JLabel timerLabel = new JLabel(String.format("%d:%02d", minuteDisplay, secondsDisplay));
+        timerLabel.setFont(new Font("Roboto", Font.BOLD, 36));
+        timerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+       
+        return timerLabel;
     }
 
-    private JButton createButton(){
-        JButton button = new JButton(buttonText);
-        button.setFocusPainted(false);
-        button.setBackground(new Color(0, 113, 112)); //greenish
-        button.setForeground(Color.WHITE);
-        button.setFont(new Font("Roboto", Font.BOLD, 16));
-
-        return button;
-    }
+    
 }

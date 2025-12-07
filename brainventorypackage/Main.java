@@ -44,11 +44,12 @@ public class Main extends JFrame {
         sidebar.setBackground(new Color(27, 29, 38)); // dark-modern
 
 
-        JButton btnDashboard = createSidebarButton("Dashboard");
-        JButton btnFocus = createSidebarButton("Focus Sessions");
-        JButton btnCourses = createSidebarButton("Courses");
-        JButton btnSettings = createSidebarButton("Settings");
+        MyButton btnDashboard = new MyButton("Dashboard",new Color(42, 46, 58),new Color(54, 57, 71));
+        MyButton btnFocus = new MyButton("Focus Sessions",new Color(42, 46, 58),new Color(54, 57, 71));
+        MyButton btnCourses = new MyButton("Courses",new Color(42, 46, 58),new Color(54, 57, 71));
+        MyButton btnSettings = new MyButton("Settings",new Color(42, 46, 58),new Color(54, 57, 71));
 
+        //make buttons responsive
         btnDashboard.addActionListener(e -> cardLayout.show(mainContent, "Dashboard"));
         btnFocus.addActionListener(e -> cardLayout.show(mainContent, "Focus Sessions"));
         btnCourses.addActionListener(e -> cardLayout.show(mainContent, "Courses"));
@@ -63,52 +64,6 @@ public class Main extends JFrame {
     }
 
 
-    private JButton createSidebarButton(String text) {
-        JButton button = new JButton(text) {
-            @Override
-            //apply styles
-            protected void paintComponent(Graphics g) {
-                Graphics2D g2 = (Graphics2D) g.create(); //cast to 2D for more drawing features
-                //anti-aliasing 
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                                    RenderingHints.VALUE_ANTIALIAS_ON);
-
-                g2.setColor(getBackground());
-                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 18, 18);
-                super.paintComponent(g2);
-                g2.dispose();
-            }
-        };
-
-        button.setFocusPainted(false);
-        button.setForeground(Color.WHITE);
-        button.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        button.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
-        button.setContentAreaFilled(false);
-        button.setOpaque(false);
-        button.setHorizontalAlignment(SwingConstants.LEFT);
-
-        // Default & hover colors
-        Color defaultColor = new Color(42, 46, 58); //darker bluish-gray
-        Color hoverColor = new Color(54, 57, 71);  //lighter bluish-gray
-
-        button.setBackground(defaultColor);
-
-        button.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(hoverColor);
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(defaultColor);
-            }
-        });
-
-        return button;
-    }
-
-   
 
     private JPanel createDashboardPanel() {
         JPanel panel = modernCard();
