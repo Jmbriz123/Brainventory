@@ -123,7 +123,7 @@ public class Main extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
         panel.setBackground(new Color(245, 246, 248));
 
-        panel.add(createTile("Create New Session"));
+        panel.add(new Pomodoro());
         panel.add(createTile("Sessions"));
 
         return panel;
