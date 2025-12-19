@@ -1,0 +1,56 @@
+[
+  {
+    "startTime": "2025-12-18 14:43:33",
+    "endTime": "2025-12-18 15:08:33",
+    "durationSeconds": 1500,
+    "course": "Math 54"
+  },
+  {
+    "startTime": "2025-12-18 16:43:06",
+    "endTime": "2025-12-18 17:08:06",
+    "durationSeconds": 1500,
+    "course": "CMSC 22"
+  },
+  {
+    "startTime": "2025-12-18 16:47:07",
+    "endTime": "2025-12-18 17:12:07",
+    "durationSeconds": 1500,
+    "course": "Math 54"
+  },
+  {
+    "startTime": "2025-12-18 16:52:38",
+    "endTime": "2025-12-18 17:17:38",
+    "durationSeconds": 1500,
+    "course": "CMSC 123"
+  },
+  {
+    "startTime": "2025-12-18 19:40:09",
+    "endTime": "2025-12-18 20:05:09",
+    "durationSeconds": 1500,
+    "course": "CMSC 123"
+  },
+  {
+    "startTime": "2025-12-18 21:20:13",
+    "endTime": "2025-12-18 21:45:13",
+    "durationSeconds": 1500,
+    "course": "Math 54"
+  },
+  {
+    "startTime": "2025-12-18 22:54:21",
+    "endTime": "2025-12-18 23:19:21",
+    "durationSeconds": 1500,
+    "course": "Math 54"
+  },
+  {
+    "startTime": "2025-12-19 10:57:25",
+    "endTime": "2025-12-19 11:22:25",
+    "durationSeconds": 1500,
+    "course": "Physics 71"
+  },
+  {
+    "startTime": "2025-12-19 11:09:53",
+    "endTime": "2025-12-19 11:34:53",
+    "durationSeconds": 1500,
+    "course": "CMSC 123"
+  }
+]
