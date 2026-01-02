@@ -99,15 +99,8 @@ Brainventory/
 
 ### Compile
 ```bash
-cd /home/jemarco/repos/Brainventory
 javac -cp "brainventorypackage/gson-2.10.1.jar" brainventorypackage/*.java
 ```
-
-### Run (Recommended: Study-focused version)
-```bash
-java -cp ".:brainventorypackage/gson-2.10.1.jar" brainventorypackage.MainStudy
-```
-
 ### Run (Alternative: Main version)
 ```bash
 java -cp ".:brainventorypackage/gson-2.10.1.jar" brainventorypackage.Main
@@ -301,5 +294,4 @@ Navigate to "Focus" tab → Scroll to "Sessions Panel"
 ---
 
 **Version**: 1.0.0  
-**Last Updated**: December 18, 2025  
-**Author**: Brainventory Team
+**Author**: Jemarco Briz
